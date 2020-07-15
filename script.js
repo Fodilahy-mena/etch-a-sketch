@@ -49,7 +49,7 @@ const draw = ({ key }) => {
     // change x and y
     // x = x - MOVE_AMOUNT;
     // y = y - MOVE_AMOUNT;
-
+    
     // move our x and y values depending on what the user did
     switch (key) {
         case 'ArrowUp':
@@ -94,6 +94,11 @@ const clearCanvas = () => {
     
     );
 }
+let myMoveButtons = document.querySelectorAll('.arrow');
+const handleMoveButtons = event => {
+	draw({ key: event.target.dataset.arrow });
+};
+myMoveButtons.forEach(button => button.addEventListener('click', handleMoveButtons));
 // Listen for arrow keys
 
 window.addEventListener('keydown', handleKey);
